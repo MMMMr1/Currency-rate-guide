@@ -7,6 +7,7 @@ import com.michalenok.currency_rate_guide.service.CurrencyService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
+import java.util.Date;
 import java.util.List;
 
 @Service
@@ -19,6 +20,18 @@ public class CurrencyServiceImpl implements CurrencyService {
 
     @Override
     public void saveCurrencies(String periodicity) {
-        currencyRepository.saveAll(nbrbClient.getCurrencies(periodicity).stream().map(currencyMapper::currencyResponseToCurrency).toList());
+        currencyRepository.saveAll(nbrbClient.getCurrencies(periodicity).stream()
+                .map(currencyMapper::currencyResponseToCurrency)
+                .toList());
+    }
+
+    @Override
+    public String findByCurrencyCode(String curCode, Date ondate) {
+        return currencyRepository.findByCurCode(curCode, ondate).getCurID();
+    }
+
+    @Override
+    public String findByCurrencyAbbreviation(String curAbbreviation, Date ondate) {
+        return currencyRepository.findByCurAbbreviation(curAbbreviation, ondate).getCurID();
     }
 }
