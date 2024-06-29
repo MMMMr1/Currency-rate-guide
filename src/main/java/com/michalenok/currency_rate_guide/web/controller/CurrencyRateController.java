@@ -1,4 +1,4 @@
-package com.michalenok.currency_rate_guide.controller;
+package com.michalenok.currency_rate_guide.web.controller;
 
 import com.michalenok.currency_rate_guide.model.dto.RateResponse;
 import com.michalenok.currency_rate_guide.service.RateService;
@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.Date;
+
 @Log4j2
 @RestController
 @RequestMapping("/api/v1")
@@ -29,10 +30,9 @@ public class CurrencyRateController {
 
     @GetMapping("/rates/{curId}")
     public RateResponse getRates(@PathVariable String curId,
-                                 @RequestParam(name = "ondate", required = false)
-                                 @DateTimeFormat(pattern = "yyyy-MM-dd") Date ondate,
+                                 @RequestParam(name = "ondate") @DateTimeFormat(pattern = "yyyy-MM-dd") Date ondate,
                                  @RequestParam(name = "parammode", defaultValue = "0", required = false) int parammode) {
         log.info("GET /rates/{}?ondate={}&parammodee={}", curId, ondate, parammode);
-        return rateService.getRate(curId, ondate,parammode);
+        return rateService.getRate(curId, ondate, parammode);
     }
 }
