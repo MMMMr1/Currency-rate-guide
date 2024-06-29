@@ -2,12 +2,15 @@ package com.michalenok.currency_rate_guide.service.impl;
 
 import com.michalenok.currency_rate_guide.client.NbrbClient;
 import com.michalenok.currency_rate_guide.mapper.RateMapper;
+import com.michalenok.currency_rate_guide.model.dto.RateResponse;
 import com.michalenok.currency_rate_guide.repository.RateRepository;
 import com.michalenok.currency_rate_guide.service.CurrencyService;
 import com.michalenok.currency_rate_guide.service.RateService;
 import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
+
+import java.util.Date;
 
 @Service
 @RequiredArgsConstructor
@@ -21,5 +24,10 @@ public class RateServiceImpl implements RateService {
     public void saveRates(String periodicity, String ondate) {
         currencyService.saveCurrencies(periodicity);
         rateRepository.saveAll(nbrbClient.getRates(periodicity, ondate).stream().map(rateMapper::rateResponseToRate).toList());
+    }
+
+    @Override
+    public RateResponse getRate(String curID, Date ondate, int parammode) {
+        return null;
     }
 }
