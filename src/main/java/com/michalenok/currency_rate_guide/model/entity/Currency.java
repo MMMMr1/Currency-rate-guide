@@ -22,7 +22,7 @@ import java.util.Date;
 @Builder
 public class Currency {
     @Id
-    private String curID;
+    private String curId;
     private String curCode;
     private String curAbbreviation;
     private String curScale;

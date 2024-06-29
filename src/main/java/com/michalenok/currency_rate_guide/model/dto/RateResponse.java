@@ -7,6 +7,6 @@ import java.util.Date;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
 public record RateResponse(
-        @JsonProperty("Cur_ID") String curID,
+        @JsonProperty("Cur_ID") String curId,
         @JsonProperty("Date") Date date,
         @JsonProperty("Cur_OfficialRate") String  curOfficialRate){}

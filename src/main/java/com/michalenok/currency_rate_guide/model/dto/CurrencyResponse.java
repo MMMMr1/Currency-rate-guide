@@ -6,7 +6,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import java.util.Date;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
-public record CurrencyResponse(@JsonProperty("Cur_ID") String curID,
+public record CurrencyResponse(@JsonProperty("Cur_ID") String curId,
                                @JsonProperty("Cur_Code") String curCode,
                                @JsonProperty("Cur_Abbreviation") String curAbbreviation,
                                @JsonProperty("Cur_Name") String  curName,

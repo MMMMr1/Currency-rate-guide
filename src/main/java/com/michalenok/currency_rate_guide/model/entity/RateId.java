@@ -15,6 +15,6 @@ import java.util.Date;
 @Setter
 @Builder
 public class RateId implements Serializable {
-    private String curID;
+    private String curId;
     private Date date;
 }
