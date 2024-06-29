@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("/api/v1")
 @RequiredArgsConstructor
 public class CurrencyRateController {
-    private RateService rateService;
+    private final RateService rateService;
     @PostMapping("/rates")
     public void saveRates(@RequestParam(name = "periodicity", required = false, defaultValue = "0") String periodicity,
                           @RequestParam(required = false) String ondate) {
