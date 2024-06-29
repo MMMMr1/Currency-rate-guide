@@ -9,5 +9,4 @@ import java.util.Date;
 public record RateResponse(
         @JsonProperty("Cur_ID") String curID,
         @JsonProperty("Date") Date date,
-        @JsonProperty("Cur_Abbreviation") String  curAbbreviation,
         @JsonProperty("Cur_OfficialRate") String  curOfficialRate){}
