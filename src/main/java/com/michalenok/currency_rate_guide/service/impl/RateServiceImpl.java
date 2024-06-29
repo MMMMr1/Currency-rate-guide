@@ -11,6 +11,7 @@ import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
+import java.time.Instant;
 import java.util.Date;
 import java.util.NoSuchElementException;
 
@@ -31,19 +32,20 @@ public class RateServiceImpl implements RateService {
     }
 
     @Override
-    public RateResponse getRate(String curID, Date ondate, int parammode) {
-        curID = getCurID(curID, ondate, parammode);
-        return rateRepository.findById(new RateId(curID, ondate))
+    public RateResponse getRate(String curId, Date ondate, int parammode) {
+        curId = getCurId(curId, ondate, parammode);
+        ondate = (ondate == null) ? Date.from(Instant.now()) : ondate;
+        return rateRepository.findById(new RateId(curId, ondate))
                 .map(rateMapper::rateToRateResponse)
                 .orElseThrow(NoSuchElementException::new);
     }
 
-    private String getCurID(String curID, Date ondate, int parammode) {
+    private String getCurId (String curId, Date ondate, int parammode) {
         if (parammode == 1) {
-            curID =  currencyService.findByCurrencyCode(curID, ondate);
+            curId =  currencyService.findByCurrencyCode(curId, ondate);
         } else if (parammode == 2) {
-            curID =  currencyService.findByCurrencyAbbreviation(curID, ondate);
+            curId =  currencyService.findByCurrencyAbbreviation(curId, ondate);
         }
-        return curID;
+        return curId;
     }
 }

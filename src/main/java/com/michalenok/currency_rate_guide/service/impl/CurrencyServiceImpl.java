@@ -8,7 +8,6 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import java.util.Date;
-import java.util.List;
 
 @Service
 @RequiredArgsConstructor
@@ -27,11 +26,11 @@ public class CurrencyServiceImpl implements CurrencyService {
 
     @Override
     public String findByCurrencyCode(String curCode, Date ondate) {
-        return currencyRepository.findByCurCode(curCode, ondate).getCurID();
+        return currencyRepository.findByCurCode(curCode, ondate).getCurId();
     }
 
     @Override
     public String findByCurrencyAbbreviation(String curAbbreviation, Date ondate) {
-        return currencyRepository.findByCurAbbreviation(curAbbreviation, ondate).getCurID();
+        return currencyRepository.findByCurAbbreviation(curAbbreviation, ondate).getCurId();
     }
 }

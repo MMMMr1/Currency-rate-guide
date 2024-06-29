@@ -27,12 +27,12 @@ public class CurrencyRateController {
         rateService.saveRates(periodicity, ondate);
     }
 
-    @GetMapping("/rates/{curID}")
-    public RateResponse getRates(@PathVariable String curID,
+    @GetMapping("/rates/{curId}")
+    public RateResponse getRates(@PathVariable String curId,
                                  @RequestParam(name = "ondate", required = false)
                                  @DateTimeFormat(pattern = "yyyy-MM-dd") Date ondate,
                                  @RequestParam(name = "parammode", defaultValue = "0", required = false) int parammode) {
-        log.info("GET /rates/{}?ondate={}&parammodee={}", curID, ondate, parammode);
-        return rateService.getRate(curID, ondate,parammode);
+        log.info("GET /rates/{}?ondate={}&parammodee={}", curId, ondate, parammode);
+        return rateService.getRate(curId, ondate,parammode);
     }
 }

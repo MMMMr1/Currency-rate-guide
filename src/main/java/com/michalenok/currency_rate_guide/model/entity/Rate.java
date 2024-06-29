@@ -24,7 +24,7 @@ import java.util.Date;
 @Builder
 public class Rate {
     @Id
-    private String curID;
+    private String curId;
     @Id
     @Temporal(TemporalType.DATE)
     private Date date;
