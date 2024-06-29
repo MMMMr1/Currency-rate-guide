@@ -1,19 +1,21 @@
 package com.michalenok.currency_rate_guide.service.impl;
 
 import com.michalenok.currency_rate_guide.client.NbrbClient;
+import com.michalenok.currency_rate_guide.model.dto.CurrencyResponse;
 import com.michalenok.currency_rate_guide.service.CurrencyService;
-import com.michalenok.currency_rate_guide.service.RateService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 @RequiredArgsConstructor
-public class RateServiceImpl implements RateService {
+public class CurrencyServiceImpl implements CurrencyService {
+
     private final NbrbClient nbrbClient;
-    private final CurrencyService currencyService;
+
     @Override
-    public void saveRates(String periodicity, String ondate) {
-        currencyService.saveCurrencies(periodicity);
-        nbrbClient.getRates(periodicity, ondate);
+    public void saveCurrencies(String periodicity) {
+        List<CurrencyResponse> currencies = nbrbClient.getCurrencies(periodicity);
     }
 }
