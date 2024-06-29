@@ -12,9 +12,15 @@ spring:
     properties:
       hibernate:
         hbm2ddl:
-          auto: update
+          auto: none
     show-sql: true
+  h2:
+    console:
+      enabled: true
 
   mvc:
     format:
       date: yyyy-MM-dd
+
+  liquibase:
+    enabled: true
