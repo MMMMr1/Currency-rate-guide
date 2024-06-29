@@ -25,7 +25,6 @@ public class RateServiceImpl implements RateService {
     @Transactional
     public void saveRates(String periodicity, String ondate) {
         currencyService.saveCurrencies(periodicity);
-        System.out.println(nbrbClient.getRates(periodicity, ondate));
         rateRepository.saveAll(nbrbClient.getRates(periodicity, ondate).stream()
                 .map(rateMapper::rateResponseToRate)
                 .toList());

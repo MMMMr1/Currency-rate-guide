@@ -1,10 +1,11 @@
 nbrb:
   url: https://api.nbrb.by
+
 spring:
   datasource:
     url: jdbc:h2:file:/data/demo
     username: nbrb
-    password: pass
+    password:
     driver-class-name: org.h2.Driver
 
   jpa:
