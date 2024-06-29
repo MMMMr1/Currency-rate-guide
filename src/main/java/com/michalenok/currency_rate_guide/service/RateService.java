@@ -6,6 +6,7 @@ import java.util.Date;
 
 public interface RateService {
     void saveRates(String periodicity, String ondate);
+
     RateResponse getRate(String curID, Date ondate, int parammode);
 
 }
