@@ -10,13 +10,12 @@ import java.util.List;
 @UtilityClass
 public class CurrencyUtil {
     public List<CurrencyResponse> getCurrencyResponses() {
-        List<CurrencyResponse> currencyResponses = List.of(
+        return List.of(
                 new CurrencyResponse("123", "123", "USD", "Доллар", LocalDate.of(2000, 10, 10), LocalDate.of(2025, 10, 10)),
                 new CurrencyResponse("124", "323", "USS", "Доллар", LocalDate.of(2000, 10, 10), LocalDate.of(2025, 10, 10)),
                 new CurrencyResponse("125", "423", "USF", "Доллар", LocalDate.of(2000, 10, 10), LocalDate.of(2025, 10, 10)),
                 new CurrencyResponse("126", "523", "USV", "Доллар", LocalDate.of(2000, 10, 10), LocalDate.of(2025, 10, 10))
         );
-        return currencyResponses;
     }
 
     public Currency getCurrency() {

@@ -34,7 +34,8 @@ public class RateServiceImpl implements RateService {
     @Override
     public RateResponse getRate(String curId, LocalDate ondate, int parammode) {
         curId = getCurId(curId, ondate, parammode);
-        return rateRepository.findById(new RateId(curId, ondate))
+        RateId rateId = new RateId(curId, ondate);
+        return rateRepository.findById(rateId)
                 .map(rateMapper::rateToRateResponse)
                 .orElseThrow(() -> new NoSuchElementException("Failed to find rate"));
     }

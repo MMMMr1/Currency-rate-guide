@@ -6,12 +6,10 @@ import com.michalenok.currency_rate_guide.model.dto.CurrencyResponse;
 import com.michalenok.currency_rate_guide.model.entity.Currency;
 import com.michalenok.currency_rate_guide.repository.CurrencyRepository;
 import lombok.SneakyThrows;
-import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
-import org.mockito.Mockito;
 import org.mockito.junit.jupiter.MockitoExtension;
 
 import java.time.LocalDate;
@@ -22,6 +20,8 @@ import java.util.Optional;
 import static com.michalenok.currency_rate_guide.util.CurrencyUtil.*;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.jupiter.api.Assertions.assertThrows;
+import static org.mockito.ArgumentMatchers.any;
+import static org.mockito.Mockito.*;
 
 
 @ExtendWith(MockitoExtension.class)
@@ -40,13 +40,13 @@ class CurrencyServiceImplTest {
     void saveCurrencies() {
         List<CurrencyResponse> currencyResponses = getCurrencyResponses();
 
-        Mockito.when(nbrbClient.getCurrencies()).thenReturn(currencyResponses);
+        when(nbrbClient.getCurrencies()).thenReturn(currencyResponses);
 
         currencyService.saveCurrencies();
 
-        Mockito.verify(currencyRepository, Mockito.times(1)).saveAll(Mockito.any(List.class));
-        Mockito.verify(nbrbClient, Mockito.times(1)).getCurrencies();
-        Mockito.verify(currencyMapper, Mockito.times(currencyResponses.size())).currencyResponseToCurrency(Mockito.any(CurrencyResponse.class));
+        verify(currencyRepository, times(1)).saveAll(any(List.class));
+        verify(nbrbClient, times(1)).getCurrencies();
+        verify(currencyMapper, times(currencyResponses.size())).currencyResponseToCurrency(any(CurrencyResponse.class));
     }
 
 
@@ -55,7 +55,7 @@ class CurrencyServiceImplTest {
     void findByCurrencyCode_Successful() {
         Currency currency = getCurrency();
 
-        Mockito.when(currencyRepository.findByCurCode(Mockito.any(String.class), Mockito.any(LocalDate.class)))
+        when(currencyRepository.findByCurCode(any(String.class), any(LocalDate.class)))
                 .thenReturn(Optional.of(currency));
 
         String byCurrencyCode = currencyService.findByCurrencyCode("008", LocalDate.of(2024, 06, 28));
@@ -68,7 +68,7 @@ class CurrencyServiceImplTest {
     @SneakyThrows
     @Test
     void findByCurrencyCode_NoSuchElementException() {
-        Mockito.when(currencyRepository.findByCurCode(Mockito.any(String.class), Mockito.any(LocalDate.class)))
+        when(currencyRepository.findByCurCode(any(String.class), any(LocalDate.class)))
                 .thenThrow(new NoSuchElementException(
                         String.format("Failed to find curId by %s and %s", "008", LocalDate.of(2024, 06, 28))
                 ));
@@ -84,7 +84,7 @@ class CurrencyServiceImplTest {
     void findByCurrencyAbbreviation_Successful() {
         Currency currency = getCurrency();
 
-        Mockito.when(currencyRepository.findByCurAbbreviation(Mockito.any(String.class), Mockito.any(LocalDate.class)))
+        when(currencyRepository.findByCurAbbreviation(any(String.class), any(LocalDate.class)))
                 .thenReturn(Optional.of(currency));
 
         String byCurrencyCode = currencyService.findByCurrencyAbbreviation("ALL", LocalDate.of(2024, 06, 28));
@@ -97,7 +97,7 @@ class CurrencyServiceImplTest {
     @SneakyThrows
     @Test
     void findByCurrencyAbbreviation_NoSuchElementException() {
-        Mockito.when(currencyRepository.findByCurAbbreviation(Mockito.any(String.class), Mockito.any(LocalDate.class)))
+        when(currencyRepository.findByCurAbbreviation(any(String.class), any(LocalDate.class)))
                 .thenThrow(new NoSuchElementException(
                         String.format("Failed to find curId by %s and %s", "ALL", LocalDate.of(2024, 06, 28))
                 ));
