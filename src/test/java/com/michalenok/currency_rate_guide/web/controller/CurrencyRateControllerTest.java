@@ -47,10 +47,11 @@ class CurrencyRateControllerTest {
         this.mockMvc.perform(post(url))
                 .andExpect(status().isOk());
     }
+
     @ParameterizedTest
     @SneakyThrows
     @CsvSource(value = {"/api/v1/rates/451?ondate=2024-06-30 : __file/data/response/RateEUR.json",
-                        "/api/v1/rates/431?ondate=2024-06-30 : __file/data/response/RateUSD.json" }, delimiter = ':')
+            "/api/v1/rates/431?ondate=2024-06-30 : __file/data/response/RateUSD.json"}, delimiter = ':')
     void getRatesWithCurId_Successful(String url, String file) {
         RateResponse rateResponse = objectMapper.readValue(TestUtil.load(file),
                 RateResponse.class);
@@ -63,7 +64,7 @@ class CurrencyRateControllerTest {
     @ParameterizedTest
     @SneakyThrows
     @CsvSource(value = {"/api/v1/rates/978?parammode=1&ondate=2024-06-30 : __file/data/response/RateEUR.json",
-                         "/api/v1/rates/840?parammode=1&ondate=2024-06-30 : __file/data/response/RateUSD.json" }, delimiter = ':')
+            "/api/v1/rates/840?parammode=1&ondate=2024-06-30 : __file/data/response/RateUSD.json"}, delimiter = ':')
     void getRatesWithCurCode_Successful(String url, String file) {
         RateResponse rateResponse = objectMapper.readValue(TestUtil.load(file),
                 RateResponse.class);
@@ -76,7 +77,7 @@ class CurrencyRateControllerTest {
     @ParameterizedTest
     @SneakyThrows
     @CsvSource(value = {"/api/v1/rates/EUR?parammode=2&ondate=2024-06-30 : __file/data/response/RateEUR.json",
-                        "/api/v1/rates/USD?parammode=2&ondate=2024-06-30 : __file/data/response/RateUSD.json" }, delimiter = ':')
+            "/api/v1/rates/USD?parammode=2&ondate=2024-06-30 : __file/data/response/RateUSD.json"}, delimiter = ':')
     void getRatesWithCurAbbreviation_Successful(String url, String file) {
         RateResponse rateResponse = objectMapper.readValue(TestUtil.load(file),
                 RateResponse.class);
@@ -84,6 +85,19 @@ class CurrencyRateControllerTest {
         mockMvc.perform(get(url))
                 .andExpect(status().isOk())
                 .andExpect(MockMvcResultMatchers.content().json(objectMapper.writeValueAsString(rateResponse)));
+    }
+
+    @ParameterizedTest
+    @SneakyThrows
+    @CsvSource(value = {"/api/v1/rates/EUR?parammode=2&ondate=2024-06-29",
+            "/api/v1/rates/EUR?parammode=1&ondate=2024-06-29",
+            "/api/v1/rates/978?parammode=1&ondate=2024-06-29",
+            "/api/v1/rates/978?parammode=1&ondate=2024-06-25",
+            "/api/v1/rates/145?parammode=1&ondate=2024-06-29",
+            "/api/v1/rates/451?ondate=2024-06-25"})
+    void getRates_throws_NotFoundException(String url) {
+        mockMvc.perform(get(url))
+                .andExpect(status().isNotFound());
     }
 
     private void initCurrencySearchInfo(String fileName) {
