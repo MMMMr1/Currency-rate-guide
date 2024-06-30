@@ -1,17 +1,11 @@
 # Description
 
-### Installation
-
-1. **Clone the repository:**
-    ```bash
-    git https://github.com/MMMMr1/currency-rate-guide.git
-    ```
-
-### Swagger:  http://localhost:8080/swagger-ui/index.html#/
+ Swagger:  http://localhost:8080/swagger-ui/index.html#/
 
 
 
 POST http://localhost:8080/api/v1/rates?periodicity=0&ondate=2024-06-10
+
 
 ##### Request parameters:
 | Parameter     | Type        | Description                                                                                                    |
@@ -26,7 +20,9 @@ POST http://localhost:8080/api/v1/rates?periodicity=0&ondate=2024-06-10
 | `message` | `String` | Error message                                                                                                         |
 
 
+
 GET http://localhost:8080/api/v1/rates/{curId}?ondate=2024-07-01&parammode=0
+
 
 ##### Request parameters:
 | Parameter     | Type           | Description                                                                                                  |
@@ -85,4 +81,12 @@ curl -X 'GET' \
   'http://localhost:8080/api/v1/rates/USD?ondate=2024-07-01&parammode=2' \
   -H 'accept: application/json'
 ```
+
+
+### Installation
+
+**Clone the repository:**
+    ```bash
+    git https://github.com/MMMMr1/currency-rate-guide.git
+    ```
 
