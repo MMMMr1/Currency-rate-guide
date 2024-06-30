@@ -1,0 +1,378 @@
+[
+  {
+    "Cur_ID": 507,
+    "Date": "2024-06-28T00:00:00",
+    "Cur_Abbreviation": "AZN",
+    "Cur_Scale": 1,
+    "Cur_Name": "Азербайджанский манат",
+    "Cur_OfficialRate": 1.8872
+  },
+  {
+    "Cur_ID": 465,
+    "Date": "2024-06-28T00:00:00",
+    "Cur_Abbreviation": "DZD",
+    "Cur_Scale": 100,
+    "Cur_Name": "Алжирских динаров",
+    "Cur_OfficialRate": 2.3830
+  },
+  {
+    "Cur_ID": 466,
+    "Date": "2024-06-28T00:00:00",
+    "Cur_Abbreviation": "ARS",
+    "Cur_Scale": 10,
+    "Cur_Name": "Аргентинских песо",
+    "Cur_OfficialRate": 0.0359
+  },
+  {
+    "Cur_ID": 467,
+    "Date": "2024-06-28T00:00:00",
+    "Cur_Abbreviation": "AFN",
+    "Cur_Scale": 100,
+    "Cur_Name": "Афгани",
+    "Cur_OfficialRate": 4.4682
+  },
+  {
+    "Cur_ID": 468,
+    "Date": "2024-06-28T00:00:00",
+    "Cur_Abbreviation": "THB",
+    "Cur_Scale": 100,
+    "Cur_Name": "Батов",
+    "Cur_OfficialRate": 8.7211
+  },
+  {
+    "Cur_ID": 470,
+    "Date": "2024-06-28T00:00:00",
+    "Cur_Abbreviation": "KRW",
+    "Cur_Scale": 1000,
+    "Cur_Name": "Вон",
+    "Cur_OfficialRate": 2.3192
+  },
+  {
+    "Cur_ID": 471,
+    "Date": "2024-06-28T00:00:00",
+    "Cur_Abbreviation": "HKD",
+    "Cur_Scale": 10,
+    "Cur_Name": "Гонконгских долларов",
+    "Cur_OfficialRate": 4.1031
+  },
+  {
+    "Cur_ID": 472,
+    "Date": "2024-06-28T00:00:00",
+    "Cur_Abbreviation": "MKD",
+    "Cur_Scale": 100,
+    "Cur_Name": "Денаров",
+    "Cur_OfficialRate": 5.6521
+  },
+  {
+    "Cur_ID": 475,
+    "Date": "2024-06-28T00:00:00",
+    "Cur_Abbreviation": "EGP",
+    "Cur_Scale": 10,
+    "Cur_Name": "Египетских фунтов",
+    "Cur_OfficialRate": 0.6790
+  },
+  {
+    "Cur_ID": 392,
+    "Date": "2024-06-28T00:00:00",
+    "Cur_Abbreviation": "JOD",
+    "Cur_Scale": 1,
+    "Cur_Name": "Иорданский динар",
+    "Cur_OfficialRate": 4.5256
+  },
+  {
+    "Cur_ID": 477,
+    "Date": "2024-06-28T00:00:00",
+    "Cur_Abbreviation": "IQD",
+    "Cur_Scale": 1000,
+    "Cur_Name": "Иракских динаров",
+    "Cur_OfficialRate": 2.4523
+  },
+  {
+    "Cur_ID": 516,
+    "Date": "2024-06-28T00:00:00",
+    "Cur_Abbreviation": "QAR",
+    "Cur_Scale": 1,
+    "Cur_Name": "Катарский риал",
+    "Cur_OfficialRate": 0.8811
+  },
+  {
+    "Cur_ID": 478,
+    "Date": "2024-06-28T00:00:00",
+    "Cur_Abbreviation": "KES",
+    "Cur_Scale": 100,
+    "Cur_Name": "Кенийских шиллингов",
+    "Cur_OfficialRate": 2.4678
+  },
+  {
+    "Cur_ID": 479,
+    "Date": "2024-06-28T00:00:00",
+    "Cur_Abbreviation": "COP",
+    "Cur_Scale": 10000,
+    "Cur_Name": "Колумбийских песо",
+    "Cur_OfficialRate": 8.2974
+  },
+  {
+    "Cur_ID": 506,
+    "Date": "2024-06-28T00:00:00",
+    "Cur_Abbreviation": "LAK",
+    "Cur_Scale": 10000,
+    "Cur_Name": "Лаосских кипов",
+    "Cur_OfficialRate": 1.4957
+  },
+  {
+    "Cur_ID": 481,
+    "Date": "2024-06-28T00:00:00",
+    "Cur_Abbreviation": "GEL",
+    "Cur_Scale": 10,
+    "Cur_Name": "Лари",
+    "Cur_OfficialRate": 11.4989
+  },
+  {
+    "Cur_ID": 482,
+    "Date": "2024-06-28T00:00:00",
+    "Cur_Abbreviation": "ALL",
+    "Cur_Scale": 100,
+    "Cur_Name": "Леков",
+    "Cur_OfficialRate": 3.4373
+  },
+  {
+    "Cur_ID": 395,
+    "Date": "2024-06-28T00:00:00",
+    "Cur_Abbreviation": "LBP",
+    "Cur_Scale": 1000,
+    "Cur_Name": "Ливанских фунтов",
+    "Cur_OfficialRate": 0.0359
+  },
+  {
+    "Cur_ID": 398,
+    "Date": "2024-06-28T00:00:00",
+    "Cur_Abbreviation": "LYD",
+    "Cur_Scale": 1,
+    "Cur_Name": "Ливийcкий динар",
+    "Cur_OfficialRate": 0.6635
+  },
+  {
+    "Cur_ID": 483,
+    "Date": "2024-06-28T00:00:00",
+    "Cur_Abbreviation": "MYR",
+    "Cur_Scale": 10,
+    "Cur_Name": "Малайзийских ринггитов",
+    "Cur_OfficialRate": 6.8158
+  },
+  {
+    "Cur_ID": 328,
+    "Date": "2024-06-28T00:00:00",
+    "Cur_Abbreviation": "MAD",
+    "Cur_Scale": 10,
+    "Cur_Name": "Марокканских дирхамов",
+    "Cur_OfficialRate": 3.2218
+  },
+  {
+    "Cur_ID": 484,
+    "Date": "2024-06-28T00:00:00",
+    "Cur_Abbreviation": "MXN",
+    "Cur_Scale": 10,
+    "Cur_Name": "Мексиканских песо",
+    "Cur_OfficialRate": 1.8841
+  },
+  {
+    "Cur_ID": 485,
+    "Date": "2024-06-28T00:00:00",
+    "Cur_Abbreviation": "NGN",
+    "Cur_Scale": 1000,
+    "Cur_Name": "Найр",
+    "Cur_OfficialRate": 2.4040
+  },
+  {
+    "Cur_ID": 486,
+    "Date": "2024-06-28T00:00:00",
+    "Cur_Abbreviation": "NPR",
+    "Cur_Scale": 100,
+    "Cur_Name": "Непальских рупий",
+    "Cur_OfficialRate": 2.4109
+  },
+  {
+    "Cur_ID": 487,
+    "Date": "2024-06-28T00:00:00",
+    "Cur_Abbreviation": "ILS",
+    "Cur_Scale": 10,
+    "Cur_Name": "Новых израильских шекелей",
+    "Cur_OfficialRate": 8.6315
+  },
+  {
+    "Cur_ID": 489,
+    "Date": "2024-06-28T00:00:00",
+    "Cur_Abbreviation": "TWD",
+    "Cur_Scale": 100,
+    "Cur_Name": "Новых тайваньских долларов",
+    "Cur_OfficialRate": 9.8788
+  },
+  {
+    "Cur_ID": 490,
+    "Date": "2024-06-28T00:00:00",
+    "Cur_Abbreviation": "TMT",
+    "Cur_Scale": 10,
+    "Cur_Name": "Новых туркменских манатов",
+    "Cur_OfficialRate": 9.1402
+  },
+  {
+    "Cur_ID": 491,
+    "Date": "2024-06-28T00:00:00",
+    "Cur_Abbreviation": "PKR",
+    "Cur_Scale": 100,
+    "Cur_Name": "Пакистанских рупий",
+    "Cur_OfficialRate": 1.1539
+  },
+  {
+    "Cur_ID": 492,
+    "Date": "2024-06-28T00:00:00",
+    "Cur_Abbreviation": "RON",
+    "Cur_Scale": 10,
+    "Cur_Name": "Румынских леев",
+    "Cur_OfficialRate": 6.9927
+  },
+  {
+    "Cur_ID": 493,
+    "Date": "2024-06-28T00:00:00",
+    "Cur_Abbreviation": "IDR",
+    "Cur_Scale": 10000,
+    "Cur_Name": "Рупий",
+    "Cur_OfficialRate": 1.9727
+  },
+  {
+    "Cur_ID": 494,
+    "Date": "2024-06-28T00:00:00",
+    "Cur_Abbreviation": "ZAR",
+    "Cur_Scale": 10,
+    "Cur_Name": "Рэндов",
+    "Cur_OfficialRate": 1.7074
+  },
+  {
+    "Cur_ID": 495,
+    "Date": "2024-06-28T00:00:00",
+    "Cur_Abbreviation": "SAR",
+    "Cur_Scale": 10,
+    "Cur_Name": "Саудовских риялов",
+    "Cur_OfficialRate": 8.5534
+  },
+  {
+    "Cur_ID": 496,
+    "Date": "2024-06-28T00:00:00",
+    "Cur_Abbreviation": "RSD",
+    "Cur_Scale": 100,
+    "Cur_Name": "Сербских динаров",
+    "Cur_OfficialRate": 2.9713
+  },
+  {
+    "Cur_ID": 497,
+    "Date": "2024-06-28T00:00:00",
+    "Cur_Abbreviation": "SYP",
+    "Cur_Scale": 1000,
+    "Cur_Name": "Сирийских фунтов",
+    "Cur_OfficialRate": 1.2774
+  },
+  {
+    "Cur_ID": 488,
+    "Date": "2024-06-28T00:00:00",
+    "Cur_Abbreviation": "PEN",
+    "Cur_Scale": 10,
+    "Cur_Name": "Солей",
+    "Cur_OfficialRate": 8.5396
+  },
+  {
+    "Cur_ID": 498,
+    "Date": "2024-06-28T00:00:00",
+    "Cur_Abbreviation": "TJS",
+    "Cur_Scale": 10,
+    "Cur_Name": "Сомони",
+    "Cur_OfficialRate": 2.9812
+  },
+  {
+    "Cur_ID": 509,
+    "Date": "2024-06-28T00:00:00",
+    "Cur_Abbreviation": "VES",
+    "Cur_Scale": 100,
+    "Cur_Name": "Суверенных боливаров",
+    "Cur_OfficialRate": 8.7978
+  },
+  {
+    "Cur_ID": 499,
+    "Date": "2024-06-28T00:00:00",
+    "Cur_Abbreviation": "SDG",
+    "Cur_Scale": 10,
+    "Cur_Name": "Суданских фунтов",
+    "Cur_OfficialRate": 0.0534
+  },
+  {
+    "Cur_ID": 446,
+    "Date": "2024-06-28T00:00:00",
+    "Cur_Abbreviation": "MNT",
+    "Cur_Scale": 1000,
+    "Cur_Name": "Тугриков",
+    "Cur_OfficialRate": 0.9490
+  },
+  {
+    "Cur_ID": 505,
+    "Date": "2024-06-28T00:00:00",
+    "Cur_Abbreviation": "TND",
+    "Cur_Scale": 10,
+    "Cur_Name": "Тунисских динаров",
+    "Cur_OfficialRate": 10.2827
+  },
+  {
+    "Cur_ID": 500,
+    "Date": "2024-06-28T00:00:00",
+    "Cur_Abbreviation": "UZS",
+    "Cur_Scale": 10000,
+    "Cur_Name": "Узбекских сумов",
+    "Cur_OfficialRate": 2.5415
+  },
+  {
+    "Cur_ID": 501,
+    "Date": "2024-06-28T00:00:00",
+    "Cur_Abbreviation": "UYU",
+    "Cur_Scale": 100,
+    "Cur_Name": "Уругвайских песо",
+    "Cur_OfficialRate": 8.3338
+  },
+  {
+    "Cur_ID": 502,
+    "Date": "2024-06-28T00:00:00",
+    "Cur_Abbreviation": "PHP",
+    "Cur_Scale": 100,
+    "Cur_Name": "Филиппинских песо",
+    "Cur_OfficialRate": 5.4711
+  },
+  {
+    "Cur_ID": 503,
+    "Date": "2024-06-28T00:00:00",
+    "Cur_Abbreviation": "HUF",
+    "Cur_Scale": 1000,
+    "Cur_Name": "Форинтов",
+    "Cur_OfficialRate": 8.9520
+  },
+  {
+    "Cur_ID": 374,
+    "Date": "2024-06-28T00:00:00",
+    "Cur_Abbreviation": "CLP",
+    "Cur_Scale": 1000,
+    "Cur_Name": "Чилийских песо",
+    "Cur_OfficialRate": 3.4939
+  },
+  {
+    "Cur_ID": 504,
+    "Date": "2024-06-28T00:00:00",
+    "Cur_Abbreviation": "LKR",
+    "Cur_Scale": 100,
+    "Cur_Name": "Шри-ланкийских рупий",
+    "Cur_OfficialRate": 1.0643
+  },
+  {
+    "Cur_ID": 350,
+    "Date": "2024-06-28T00:00:00",
+    "Cur_Abbreviation": "ETB",
+    "Cur_Scale": 100,
+    "Cur_Name": "Эфиопских быров",
+    "Cur_OfficialRate": 5.5903
+  }
+]

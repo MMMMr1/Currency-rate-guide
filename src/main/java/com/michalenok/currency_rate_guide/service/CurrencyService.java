@@ -1,11 +1,11 @@
 package com.michalenok.currency_rate_guide.service;
 
-import java.util.Date;
+import java.time.LocalDate;
 
 public interface CurrencyService {
-    void saveCurrencies(String periodicity);
+    void saveCurrencies();
 
-    String findByCurrencyCode(String curID, Date ondate);
+    String findByCurrencyCode(String curID, LocalDate ondate);
 
-    String findByCurrencyAbbreviation(String curID, Date ondate);
+    String findByCurrencyAbbreviation(String curID, LocalDate ondate);
 }

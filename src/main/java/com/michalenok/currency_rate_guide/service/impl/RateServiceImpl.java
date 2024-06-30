@@ -11,7 +11,7 @@ import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
-import java.util.Date;
+import java.time.LocalDate;
 import java.util.NoSuchElementException;
 
 @Service
@@ -25,21 +25,22 @@ public class RateServiceImpl implements RateService {
     @Override
     @Transactional
     public void saveRates(String periodicity, String ondate) {
-        currencyService.saveCurrencies(periodicity);
+        currencyService.saveCurrencies();
         rateRepository.saveAll(nbrbClient.getRates(periodicity, ondate).stream()
                 .map(rateMapper::rateResponseToRate)
                 .toList());
     }
 
     @Override
-    public RateResponse getRate(String curId, Date ondate, int parammode) {
+    public RateResponse getRate(String curId, LocalDate ondate, int parammode) {
         curId = getCurId(curId, ondate, parammode);
-        return rateRepository.findById(new RateId(curId, ondate))
+        RateId rateId = new RateId(curId, ondate);
+        return rateRepository.findById(rateId)
                 .map(rateMapper::rateToRateResponse)
                 .orElseThrow(() -> new NoSuchElementException("Failed to find rate"));
     }
 
-    private String getCurId(String curId, Date ondate, int parammode) {
+    private String getCurId(String curId, LocalDate ondate, int parammode) {
         if (parammode == 1) {
             curId = currencyService.findByCurrencyCode(curId, ondate);
         } else if (parammode == 2) {
