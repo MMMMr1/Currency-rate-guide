@@ -20,6 +20,7 @@ import java.util.NoSuchElementException;
 import java.util.Optional;
 
 import static com.michalenok.currency_rate_guide.util.CurrencyUtil.*;
+import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
 
@@ -59,7 +60,7 @@ class CurrencyServiceImplTest {
 
         String byCurrencyCode = currencyService.findByCurrencyCode("008", LocalDate.of(2024, 06, 28));
 
-        Assertions.assertThat(byCurrencyCode)
+        assertThat(byCurrencyCode)
                 .isNotNull()
                 .isEqualTo(currency.getCurId());
     }
@@ -72,8 +73,10 @@ class CurrencyServiceImplTest {
                         String.format("Failed to find curId by %s and %s", "008", LocalDate.of(2024, 06, 28))
                 ));
 
-        assertThrows(NoSuchElementException.class, () ->
+        NoSuchElementException exception = assertThrows(NoSuchElementException.class, () ->
                 currencyService.findByCurrencyCode("008", LocalDate.of(2024, 06, 28)));
+        assertThat(exception)
+                .hasMessageContaining("Failed to find curId by 008 and 2024-06-28");
     }
 
     @SneakyThrows
@@ -86,7 +89,7 @@ class CurrencyServiceImplTest {
 
         String byCurrencyCode = currencyService.findByCurrencyAbbreviation("ALL", LocalDate.of(2024, 06, 28));
 
-        Assertions.assertThat(byCurrencyCode)
+        assertThat(byCurrencyCode)
                 .isNotNull()
                 .isEqualTo(currency.getCurId());
     }
@@ -96,11 +99,13 @@ class CurrencyServiceImplTest {
     void findByCurrencyAbbreviation_NoSuchElementException() {
         Mockito.when(currencyRepository.findByCurAbbreviation(Mockito.any(String.class), Mockito.any(LocalDate.class)))
                 .thenThrow(new NoSuchElementException(
-                        String.format("Failed to find curId by %s and %s", "008", LocalDate.of(2024, 06, 28))
+                        String.format("Failed to find curId by %s and %s", "ALL", LocalDate.of(2024, 06, 28))
                 ));
 
-        assertThrows(NoSuchElementException.class, () ->
+        NoSuchElementException exception = assertThrows(NoSuchElementException.class, () ->
                 currencyService.findByCurrencyAbbreviation("ALL", LocalDate.of(2024, 06, 28)));
+        assertThat(exception)
+                .hasMessageContaining("Failed to find curId by ALL and 2024-06-28");
     }
 
 }
