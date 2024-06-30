@@ -15,8 +15,7 @@ public interface NbrbClient {
             @RequestParam String periodicity,
             @RequestParam String ondate
     );
-    @GetMapping(path = "/exrates/currencies?{periodicity}")
+    @GetMapping(path = "/exrates/currencies")
     List<CurrencyResponse> getCurrencies(
-            @RequestParam String periodicity
     );
 }
