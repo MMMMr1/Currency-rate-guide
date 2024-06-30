@@ -8,6 +8,7 @@ import com.michalenok.currency_rate_guide.model.entity.RateId;
 import com.michalenok.currency_rate_guide.repository.RateRepository;
 import com.michalenok.currency_rate_guide.service.CurrencyService;
 import com.michalenok.currency_rate_guide.util.RateUtil;
+import lombok.SneakyThrows;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
@@ -17,10 +18,12 @@ import org.mockito.junit.jupiter.MockitoExtension;
 
 import java.time.LocalDate;
 import java.util.List;
+import java.util.NoSuchElementException;
 import java.util.Optional;
 
 import static com.michalenok.currency_rate_guide.util.RateUtil.*;
 import static org.assertj.core.api.Assertions.assertThat;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.*;
 
@@ -89,23 +92,47 @@ class RateServiceImplTest {
         assertThat(response.curOfficialRate().equals(rate.getCurOfficialRate()));
     }
     @Test
-    void getRateByCurrencyAbbreviation_Successful() {
-        Rate rate = RateUtil.getRate();
+    void getRateByCurId_NoSuchElementException() {
+        String curId = "USD";
+        LocalDate ondate = LocalDate.of(2024, 06, 28);
+
+        NoSuchElementException exception = assertThrows(NoSuchElementException.class, () ->
+                rateService.getRate(curId, ondate , 1));
+        assertThat(exception)
+                .hasMessageContaining("Failed to find rate");
+    }
+
+    @SneakyThrows
+    @Test
+    void getRateByCurrencyCode_NoSuchElementException() {
+        String curId = "007";
+        LocalDate ondate = LocalDate.of(2024, 06, 28);
+
+        when(currencyService.findByCurrencyCode(curId, ondate))
+                .thenThrow(new NoSuchElementException(
+                        String.format("Failed to find curId by %s and %s", "007", LocalDate.of(2024, 06, 28))
+                ));
+
+        NoSuchElementException exception = assertThrows(NoSuchElementException.class, () ->
+                rateService.getRate(curId, ondate , 1));
+        assertThat(exception)
+                .hasMessageContaining("Failed to find curId by 007 and 2024-06-28");
+    }
+
+    @SneakyThrows
+    @Test
+    void getRateByCurrencyAbbreviation_NoSuchElementException() {
         String curId = "ALL";
-        LocalDate ondate = LocalDate.of(2024, 06, 30);
+        LocalDate ondate = LocalDate.of(2024, 06, 28);
 
         when(currencyService.findByCurrencyAbbreviation(curId, ondate))
-                .thenReturn("451");
-        when(rateRepository.findById(any(RateId.class)))
-                .thenReturn(Optional.of(rate));
-        when(rateMapper.rateToRateResponse(any(Rate.class)))
-                .thenReturn(RateUtil.getRateResponse());
+                .thenThrow(new NoSuchElementException(
+                        String.format("Failed to find curId by %s and %s", "ALL", LocalDate.of(2024, 06, 28))
+                ));
 
-        RateResponse response = rateService.getRate(curId, ondate , 2);
-
-        assertThat(response).isNotNull();
-        assertThat(response.curId().equals(rate.getCurId()));
-        assertThat(response.date().equals(rate.getDate()));
-        assertThat(response.curOfficialRate().equals(rate.getCurOfficialRate()));
+        NoSuchElementException exception = assertThrows(NoSuchElementException.class, () ->
+                rateService.getRate(curId, ondate , 2));
+        assertThat(exception)
+                .hasMessageContaining("Failed to find curId by ALL and 2024-06-28");
     }
 }
