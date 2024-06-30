@@ -11,7 +11,8 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-import java.util.Date;
+import java.time.LocalDate;
+
 
 @Entity
 @Table(name = "currencies")
@@ -28,7 +29,7 @@ public class Currency {
     private String curScale;
     private String curName;
     @Temporal(TemporalType.DATE)
-    private Date curDateStart;
+    private LocalDate curDateStart;
     @Temporal(TemporalType.DATE)
-    private Date curDateEnd;
+    private LocalDate curDateEnd;
 }

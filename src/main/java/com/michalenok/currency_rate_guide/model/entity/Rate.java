@@ -12,7 +12,7 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-import java.util.Date;
+import java.time.LocalDate;
 
 @Entity
 @Table(name = "rates")
@@ -27,7 +27,7 @@ public class Rate {
     private String curId;
     @Id
     @Temporal(TemporalType.DATE)
-    private Date date;
+    private LocalDate date;
     private String curOfficialRate;
 
 }

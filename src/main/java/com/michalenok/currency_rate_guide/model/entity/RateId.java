@@ -7,7 +7,7 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import java.io.Serializable;
-import java.util.Date;
+import java.time.LocalDate;
 
 @NoArgsConstructor
 @AllArgsConstructor
@@ -16,5 +16,5 @@ import java.util.Date;
 @Builder
 public class RateId implements Serializable {
     private String curId;
-    private Date date;
+    private LocalDate date;
 }

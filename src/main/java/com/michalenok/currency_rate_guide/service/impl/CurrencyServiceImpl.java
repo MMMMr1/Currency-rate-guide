@@ -8,7 +8,7 @@ import com.michalenok.currency_rate_guide.service.CurrencyService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
-import java.util.Date;
+import java.time.LocalDate;
 import java.util.NoSuchElementException;
 
 @Service
@@ -27,19 +27,19 @@ public class CurrencyServiceImpl implements CurrencyService {
     }
 
     @Override
-    public String findByCurrencyCode(String curCode, Date ondate) {
+    public String findByCurrencyCode(String curCode, LocalDate ondate) {
         return currencyRepository.findByCurCode(curCode, ondate)
                 .map(Currency::getCurId)
-                .orElseThrow(() ->  new NoSuchElementException(
+                .orElseThrow(() -> new NoSuchElementException(
                         String.format("Failed to find curId by %s and %s", curCode, ondate)
                 ));
     }
 
     @Override
-    public String findByCurrencyAbbreviation(String curAbbreviation, Date ondate) {
+    public String findByCurrencyAbbreviation(String curAbbreviation, LocalDate ondate) {
         return currencyRepository.findByCurAbbreviation(curAbbreviation, ondate)
                 .map(Currency::getCurId)
-                .orElseThrow(() ->  new NoSuchElementException(
+                .orElseThrow(() -> new NoSuchElementException(
                         String.format("Failed to find curId by %s and %s", curAbbreviation, ondate)
                 ));
     }

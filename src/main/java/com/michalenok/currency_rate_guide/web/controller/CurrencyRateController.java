@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import java.util.Date;
+import java.time.LocalDate;
 
 @Log4j2
 @RestController
@@ -30,7 +30,7 @@ public class CurrencyRateController {
 
     @GetMapping("/rates/{curId}")
     public RateResponse getRates(@PathVariable String curId,
-                                 @RequestParam(name = "ondate") @DateTimeFormat(pattern = "yyyy-MM-dd") Date ondate,
+                                 @RequestParam(name = "ondate") LocalDate ondate,
                                  @RequestParam(name = "parammode", defaultValue = "0", required = false) int parammode) {
         log.info("GET /rates/{}?ondate={}&parammodee={}", curId, ondate, parammode);
         return rateService.getRate(curId, ondate, parammode);
