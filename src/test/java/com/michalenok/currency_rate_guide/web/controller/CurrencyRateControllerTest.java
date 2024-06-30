@@ -95,7 +95,7 @@ class CurrencyRateControllerTest {
             "/api/v1/rates/978?parammode=1&ondate=2024-06-25",
             "/api/v1/rates/145?parammode=1&ondate=2024-06-29",
             "/api/v1/rates/451?ondate=2024-06-25"})
-    void getRates_throws_NotFoundException(String url) {
+    void getRates_NotFoundException(String url) {
         mockMvc.perform(get(url))
                 .andExpect(status().isNotFound());
     }
