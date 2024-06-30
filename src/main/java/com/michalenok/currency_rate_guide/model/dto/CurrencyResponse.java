@@ -6,9 +6,31 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import java.time.LocalDate;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
-public record CurrencyResponse(@JsonProperty("Cur_ID") String curId,
-                               @JsonProperty("Cur_Code") String curCode,
-                               @JsonProperty("Cur_Abbreviation") String curAbbreviation,
-                               @JsonProperty("Cur_Name") String  curName,
-                               @JsonProperty("Cur_DateStart") LocalDate curDateStart,
-                               @JsonProperty("Cur_DateEnd") LocalDate curDateEnd) {}
+public record CurrencyResponse(
+        /**
+         * internal code
+         */
+        @JsonProperty("Cur_ID") String curId,
+        /**
+         * numeric code (ISO 4217)
+         */
+        @JsonProperty("Cur_Code") String curCode,
+        /**
+         * alphabetic code (ISO 4217)
+         */
+        @JsonProperty("Cur_Abbreviation") String curAbbreviation,
+        /**
+         * currency name in Russian language
+         */
+        @JsonProperty("Cur_Name") String curName,
+        /**
+         * date of currency inclusion in the list of currencies to which the official exchange rate of the Belarusian
+         * ruble is set
+         */
+        @JsonProperty("Cur_DateStart") LocalDate curDateStart,
+        /**
+         * Cur_DateEnd - date of exclusion of the currency from the list of currencies to which the official exchange
+         * rate of the Belarusian ruble is set.
+         */
+        @JsonProperty("Cur_DateEnd") LocalDate curDateEnd) {
+}
