@@ -25,7 +25,7 @@ import java.time.LocalDate;
 public class CurrencyRateController {
     private final RateService rateService;
 
-    @Operation(summary = "Save the exchange rate for a certain day")
+    @Operation(summary = "Save the exchange rate for the day on which the rate is requested")
     @ApiResponses({
             @ApiResponse(responseCode = "200", description = "Successful", content = {@Content(mediaType = "application/json")}),
             @ApiResponse(responseCode = "500", description = "Server Error")
@@ -37,7 +37,7 @@ public class CurrencyRateController {
         rateService.saveRates(periodicity, ondate);
     }
 
-    @Operation(summary = "Get the exchange rate for a certain day")
+    @Operation(summary = "Get the exchange rate for the day on which the rate is requested")
     @ApiResponses({
             @ApiResponse(responseCode = "200", description = "Successful", content = {@Content(mediaType = "application/json",
                     schema = @Schema(implementation = RateResponse.class))}),
