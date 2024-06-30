@@ -20,8 +20,8 @@ public class CurrencyServiceImpl implements CurrencyService {
     private final CurrencyRepository currencyRepository;
 
     @Override
-    public void saveCurrencies(String periodicity) {
-        currencyRepository.saveAll(nbrbClient.getCurrencies(periodicity).stream()
+    public void saveCurrencies() {
+        currencyRepository.saveAll(nbrbClient.getCurrencies().stream()
                 .map(currencyMapper::currencyResponseToCurrency)
                 .toList());
     }
