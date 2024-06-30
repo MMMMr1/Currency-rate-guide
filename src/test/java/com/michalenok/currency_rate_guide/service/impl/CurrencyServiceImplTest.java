@@ -69,9 +69,7 @@ class CurrencyServiceImplTest {
     @Test
     void findByCurrencyCode_NoSuchElementException() {
         when(currencyRepository.findByCurCode(any(String.class), any(LocalDate.class)))
-                .thenThrow(new NoSuchElementException(
-                        String.format("Failed to find curId by %s and %s", "008", LocalDate.of(2024, 06, 28))
-                ));
+                .thenReturn(Optional.empty());
 
         NoSuchElementException exception = assertThrows(NoSuchElementException.class, () ->
                 currencyService.findByCurrencyCode("008", LocalDate.of(2024, 06, 28)));
@@ -98,9 +96,7 @@ class CurrencyServiceImplTest {
     @Test
     void findByCurrencyAbbreviation_NoSuchElementException() {
         when(currencyRepository.findByCurAbbreviation(any(String.class), any(LocalDate.class)))
-                .thenThrow(new NoSuchElementException(
-                        String.format("Failed to find curId by %s and %s", "ALL", LocalDate.of(2024, 06, 28))
-                ));
+                .thenReturn(Optional.empty());
 
         NoSuchElementException exception = assertThrows(NoSuchElementException.class, () ->
                 currencyService.findByCurrencyAbbreviation("ALL", LocalDate.of(2024, 06, 28)));

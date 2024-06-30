@@ -95,6 +95,8 @@ class RateServiceImplTest {
     void getRateByCurId_NoSuchElementException() {
         String curId = "USD";
         LocalDate ondate = LocalDate.of(2024, 06, 28);
+        when(rateRepository.findById(any(RateId.class)))
+                .thenReturn(Optional.empty());
 
         NoSuchElementException exception = assertThrows(NoSuchElementException.class, () ->
                 rateService.getRate(curId, ondate , 1));
