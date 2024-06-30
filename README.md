@@ -1,6 +1,33 @@
 # Description
+ Service for receiving and displaying exchange rate data from the NBRB website (API of the national bank: https://www.nbrb.by/apihelp/exrates).
 
- Swagger:  http://localhost:8080/swagger-ui/index.html#/
+
+### Prerequisites
+- Java 21 
+
+### Technology Stack
+
+#### Backend:
+- Java
+- Spring Boot
+- Spring Data JPA
+- Liquibase  
+
+#### Database
+- H2 Database
+
+#### Testing
+- JUnit 5
+- Spring Boot Test 
+- WireMock
+
+#### Documentation
+- Swagger (OpenAPI 3.0)
+
+
+## Usage
+
+Swagger:  http://localhost:8080/swagger-ui/index.html#/
 
 
 
@@ -46,7 +73,7 @@ GET http://localhost:8080/api/v1/rates/{curId}?ondate=2024-07-01&parammode=0
 
 Example API Requests: 
 
-1. **Save the exchange rate:**
+1. **Save the exchange rates:**
 
 ```bash
 curl -X 'POST' \
