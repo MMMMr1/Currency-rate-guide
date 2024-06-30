@@ -81,10 +81,10 @@ class CurrencyServiceImplTest {
     void findByCurrencyAbbreviation_Successful() {
         Currency currency = getCurrency();
 
-        Mockito.when(currencyRepository.findByCurCode(Mockito.any(String.class), Mockito.any(LocalDate.class)))
+        Mockito.when(currencyRepository.findByCurAbbreviation(Mockito.any(String.class), Mockito.any(LocalDate.class)))
                 .thenReturn(Optional.of(currency));
 
-        String byCurrencyCode = currencyService.findByCurrencyCode("ALL", LocalDate.of(2024, 06, 28));
+        String byCurrencyCode = currencyService.findByCurrencyAbbreviation("ALL", LocalDate.of(2024, 06, 28));
 
         Assertions.assertThat(byCurrencyCode)
                 .isNotNull()
@@ -94,13 +94,13 @@ class CurrencyServiceImplTest {
     @SneakyThrows
     @Test
     void findByCurrencyAbbreviation_NoSuchElementException() {
-        Mockito.when(currencyRepository.findByCurCode(Mockito.any(String.class), Mockito.any(LocalDate.class)))
+        Mockito.when(currencyRepository.findByCurAbbreviation(Mockito.any(String.class), Mockito.any(LocalDate.class)))
                 .thenThrow(new NoSuchElementException(
                         String.format("Failed to find curId by %s and %s", "008", LocalDate.of(2024, 06, 28))
                 ));
 
         assertThrows(NoSuchElementException.class, () ->
-                currencyService.findByCurrencyCode("ALL", LocalDate.of(2024, 06, 28)));
+                currencyService.findByCurrencyAbbreviation("ALL", LocalDate.of(2024, 06, 28)));
     }
 
 }
