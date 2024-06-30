@@ -2,9 +2,13 @@ package com.michalenok.currency_rate_guide.web.controller;
 
 import com.michalenok.currency_rate_guide.model.dto.RateResponse;
 import com.michalenok.currency_rate_guide.service.RateService;
+import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.media.Content;
+import io.swagger.v3.oas.annotations.media.Schema;
+import io.swagger.v3.oas.annotations.responses.ApiResponse;
+import io.swagger.v3.oas.annotations.responses.ApiResponses;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j2;
-import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -21,6 +25,11 @@ import java.time.LocalDate;
 public class CurrencyRateController {
     private final RateService rateService;
 
+    @Operation(summary = "Save the exchange rate for a certain day")
+    @ApiResponses({
+            @ApiResponse(responseCode = "200", description = "Successful", content = {@Content(mediaType = "application/json")}),
+            @ApiResponse(responseCode = "500", description = "Server Error")
+    })
     @PostMapping("/rates")
     public void saveRates(@RequestParam(name = "periodicity", required = false, defaultValue = "0") String periodicity,
                           @RequestParam(required = false) String ondate) {
@@ -28,6 +37,13 @@ public class CurrencyRateController {
         rateService.saveRates(periodicity, ondate);
     }
 
+    @Operation(summary = "Get the exchange rate for a certain day")
+    @ApiResponses({
+            @ApiResponse(responseCode = "200", description = "Successful", content = {@Content(mediaType = "application/json",
+                    schema = @Schema(implementation = RateResponse.class))}),
+            @ApiResponse(responseCode = "404", description = "The server cannot find the requested resource", content = {@Content(mediaType = "application/json")}),
+            @ApiResponse(responseCode = "500", description = "Server Error")
+    })
     @GetMapping("/rates/{curId}")
     public RateResponse getRates(@PathVariable String curId,
                                  @RequestParam(name = "ondate") LocalDate ondate,
