@@ -13,6 +13,10 @@ spring:
       hibernate:
         hbm2ddl:
           auto: none
+        jdbc:
+          batch_size: 10
+          order_inserts: true
+        generate_statistics: true
     show-sql: true
   h2:
     console:
