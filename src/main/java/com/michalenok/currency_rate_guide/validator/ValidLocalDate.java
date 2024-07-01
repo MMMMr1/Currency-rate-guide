@@ -1,4 +1,4 @@
-package com.michalenok.currency_rate_guide.util.validator;
+package com.michalenok.currency_rate_guide.validator;
 
 import jakarta.validation.Constraint;
 import jakarta.validation.Payload;
