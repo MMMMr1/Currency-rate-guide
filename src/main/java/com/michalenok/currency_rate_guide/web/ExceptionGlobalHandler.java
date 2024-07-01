@@ -10,7 +10,6 @@ import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
-import org.springframework.web.method.annotation.MethodArgumentTypeMismatchException;
 
 import java.util.List;
 import java.util.NoSuchElementException;
@@ -30,23 +29,12 @@ public class ExceptionGlobalHandler {
         return ResponseEntity.status(HttpStatus.BAD_REQUEST)
                 .body(new ExceptionListDTO(error));
     }
-
     /**
      * 400
      */
     @ExceptionHandler(ConstraintViolationException.class)
     public ResponseEntity<List<ExceptionErrorDTO>> onConstraintViolationException(
             ConstraintViolationException e) {
-        return ResponseEntity.status(HttpStatus.BAD_REQUEST)
-                .body(List.of(new ExceptionErrorDTO(e.getMessage())));
-    }
-
-    /**
-     * 400
-     */
-    @ExceptionHandler(MethodArgumentTypeMismatchException.class)
-    public ResponseEntity<List<ExceptionErrorDTO>> onDateTimeParseException (
-            MethodArgumentTypeMismatchException e) {
         return ResponseEntity.status(HttpStatus.BAD_REQUEST)
                 .body(List.of(new ExceptionErrorDTO(e.getMessage())));
     }
