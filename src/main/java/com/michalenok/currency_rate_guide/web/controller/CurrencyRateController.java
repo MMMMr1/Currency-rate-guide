@@ -1,7 +1,8 @@
 package com.michalenok.currency_rate_guide.web.controller;
 
 import com.michalenok.currency_rate_guide.model.dto.RateResponse;
-import com.michalenok.currency_rate_guide.service.RateService;
+import com.michalenok.currency_rate_guide.service.RateService; 
+import com.michalenok.currency_rate_guide.validator.ValidLocalDate; 
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.media.Content;
 import io.swagger.v3.oas.annotations.media.Schema;
