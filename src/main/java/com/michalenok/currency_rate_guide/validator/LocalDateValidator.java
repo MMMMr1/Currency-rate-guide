@@ -13,6 +13,7 @@ public class LocalDateValidator implements ConstraintValidator<ValidLocalDate, S
     }
 
     private boolean validateLocalDate(String date) {
+        if (date == null) return true;
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
         try {
             formatter.parse(date);
