@@ -45,7 +45,7 @@ class CurrencyRateControllerTest {
         initCurrencySearchInfo(fileCurrencies);
         initRateSearchInfo(fileRates);
         this.mockMvc.perform(post(url))
-                .andExpect(status().isOk());
+                .andExpect(status().isCreated());
     }
 
     @ParameterizedTest
