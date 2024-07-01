@@ -17,7 +17,7 @@ public interface RateService {
     void saveRates(String periodicity, String ondate);
 
     /**
-     * method for getting exchange rate
+     *
      * @param curId
      * @param ondate the date on which the rate is requested
      * @param parammode cur_id argument format: 0 - internal currency code,
