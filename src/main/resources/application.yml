@@ -1,1 +1,45 @@
-spring.application.name=currency-rate-guide
+nbrb:
+  url: https://api.nbrb.by
+
+spring:
+  application:
+    name: "currency-rate-guide-api"
+  datasource:
+    url: jdbc:h2:file:/data/demo
+    username: nbrb
+    password:
+    driver-class-name: org.h2.Driver
+
+  jpa:
+    properties:
+      hibernate:
+        hbm2ddl:
+          auto: none
+        jdbc:
+          batch_size: 10
+          order_inserts: true
+        generate_statistics: true
+    show-sql: false
+  h2:
+    console:
+      enabled: false
+
+  mvc:
+    format:
+      date: yyyy-MM-dd
+
+  liquibase:
+    enabled: true
+
+openapi:
+  service:
+    version: 1.0.0
+    name: ${spring.application.name}
+    description: "Responsible for getting the exchange rates"
+    url: "http://localhost:8080/"
+
+springdoc:
+  packages-to-scan: "com.michalenok.currency_rate_guide.web.controller"
+  swagger-ui:
+    config-url: "/v3/api-docs/swagger-config"
+    url: "/v3/api-docs"
