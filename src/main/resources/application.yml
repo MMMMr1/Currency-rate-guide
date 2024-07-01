@@ -19,10 +19,10 @@ spring:
           batch_size: 10
           order_inserts: true
         generate_statistics: true
-    show-sql: true
+    show-sql: false
   h2:
     console:
-      enabled: true
+      enabled: false
 
   mvc:
     format:
